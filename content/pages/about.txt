@@ -1,1 +1,5 @@
+&title=About this page
+&isArchived=false
 This is the about page.
+
+It should explain what this project is!
