@@ -7,3 +7,14 @@ type Page struct {
 	Body  string
 	Meta  url.Values
 }
+
+type MenuItem struct {
+	Title string
+	URL   string
+}
+
+type RenderData struct {
+	Page Page
+	Menu []MenuItem
+	SiteTitle string
+}

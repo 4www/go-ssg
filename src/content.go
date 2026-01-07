@@ -90,3 +90,11 @@ func isArchived(meta url.Values) bool {
 	value := strings.TrimSpace(strings.ToLower(meta.Get("isArchived")))
 	return value == "true" || value == "1" || value == "yes"
 }
+
+func isMenu(meta url.Values) bool {
+	value := strings.TrimSpace(strings.ToLower(meta.Get("isMenu")))
+	if value == "" {
+		return true
+	}
+	return !(value == "false" || value == "0" || value == "no")
+}

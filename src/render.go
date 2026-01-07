@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func renderPage(cfg Config, page Page) error {
+func renderPage(cfg Config, page Page, menu []MenuItem) error {
 	templatePath := filepath.Join(cfg.TemplatesFolder, "layout.html")
 	funcs := template.FuncMap{
 		"splitParagraphs": splitParagraphs,
@@ -28,7 +28,12 @@ func renderPage(cfg Config, page Page) error {
 	}
 	defer f.Close()
 
-	return tpl.Execute(f, page)
+	data := RenderData{
+		Page: page,
+		Menu: menu,
+		SiteTitle: cfg.SiteTitle,
+	}
+	return tpl.Execute(f, data)
 }
 
 func outputHTMLPath(cfg Config, slug string) string {

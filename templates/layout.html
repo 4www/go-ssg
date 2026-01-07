@@ -2,17 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>{{ .Meta.Get "title" }}</title>
+    <title>{{ .Page.Meta.Get "title" }}{{ if .SiteTitle }} | {{ .SiteTitle }}{{ end }}</title>
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
+      {{ if .SiteTitle }}<strong>{{ .SiteTitle }}</strong>{{ end }}
+      {{ range .Menu -}}
+        <a href="{{ .URL }}">{{ .Title }}</a>
+      {{- end }}
     </nav>
 
-    <h1>{{ .Meta.Get "title" }}</h1>
+    <h1>{{ .Page.Meta.Get "title" }}</h1>
     <div>
-      {{ range splitParagraphs .Body -}}
+      {{ range splitParagraphs .Page.Body -}}
         <p>{{ . }}</p>
       {{- end }}
     </div>

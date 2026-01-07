@@ -1,0 +1,4 @@
+&isMenu=false
+&title=No in the menu
+
+This file won't be in the menu because it has `isMenu` set to `false` but will still be gendered to HTML.

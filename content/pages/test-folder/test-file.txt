@@ -1,1 +1,1 @@
-this is a test in a sub folder
+This is a test file in a sub folder, which will be skipped because only root content folder files are used.
