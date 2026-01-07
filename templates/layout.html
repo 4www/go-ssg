@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>{{ .Title }}</title>
+    <title>{{ .Meta.Get "title" }}</title>
   </head>
   <body>
     <nav>
@@ -10,7 +10,11 @@
       <a href="/about/">About</a>
     </nav>
 
-    <h1>{{ .Title }}</h1>
-    <pre>{{ .Body }}</pre>
+    <h1>{{ .Meta.Get "title" }}</h1>
+    <div>
+      {{ range splitParagraphs .Body -}}
+        <p>{{ . }}</p>
+      {{- end }}
+    </div>
   </body>
 </html>

@@ -1,7 +1,9 @@
 package main
 
+import "net/url"
+
 type Page struct {
 	Slug  string
-	Title string
 	Body  string
+	Meta  url.Values
 }

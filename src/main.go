@@ -9,6 +9,8 @@ func main() {
 		ContentFolder:    "content",
 		PagesFolder:      "pages",
 		ContentExtension: ".txt",
+		TemplatesFolder:  "templates",
+		OutputFolder:     "dist",
 	}
 	if err := buildSite(cfg); err != nil {
 		panic(err)
@@ -28,10 +30,17 @@ func buildSite(cfg Config) error {
 		if err != nil {
 			return err
 		}
-		fmt.Println("loaded:", slug, "meta:", meta, "body:", body)
+		page := Page{
+			Slug:  slug,
+			Body:  body,
+			Meta:  meta,
+		}
+
+		if err := renderPage(cfg, page); err != nil {
+			return err
+		}
+		fmt.Println("rendered:", slug)
 	}
 
 	return nil
 }
-
-

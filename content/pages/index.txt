@@ -1,1 +1,2 @@
+&title=Home page of the project
 This is the index page.
