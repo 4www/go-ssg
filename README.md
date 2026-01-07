@@ -1,6 +1,8 @@
 This project is to learn more [Go](https://go.dev) by building a minimal,
 experimental static site generator.
 
+> Just some personal tests, by no mean supposed to be "useful" to anyone (else).
+
 # What it does
 - Reads pages from `content/pages/*.txt`
 - Parses metadata lines starting with `&` into key/value pairs
