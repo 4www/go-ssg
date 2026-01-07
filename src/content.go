@@ -85,3 +85,8 @@ func parseTxt(raw string) (meta url.Values, body string, err error) {
 	body = strings.Join(lines[i:], "\n")
 	return meta, body, nil
 }
+
+func isArchived(meta url.Values) bool {
+	value := strings.TrimSpace(strings.ToLower(meta.Get("isArchived")))
+	return value == "true" || value == "1" || value == "yes"
+}

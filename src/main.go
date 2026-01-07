@@ -30,6 +30,10 @@ func buildSite(cfg Config) error {
 		if err != nil {
 			return err
 		}
+		if isArchived(meta) {
+			fmt.Println("skipped (archived):", slug)
+			continue
+		}
 		page := Page{
 			Slug:  slug,
 			Body:  body,
